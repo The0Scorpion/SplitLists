@@ -171,6 +171,14 @@ splitBtn.addEventListener("click", async () => {
   }
 });
 
+fileInput.addEventListener("change", () => {
+  const file = fileInput.files?.[0];
+  if (file) {
+    const nameWithoutExt = file.name.replace(/\.csv$/i, "");
+    prefixInput.value = nameWithoutExt;
+  }
+});
+
 downloadAllBtn.addEventListener("click", () => {
   if (!generatedFiles.length) return;
 
